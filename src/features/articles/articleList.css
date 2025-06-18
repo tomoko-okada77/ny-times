@@ -1,0 +1,9 @@
+.article figure {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.article div {
+  grid-column: 2;
+  grid-row: 1;
+}

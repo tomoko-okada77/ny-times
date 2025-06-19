@@ -1,7 +1,6 @@
 export type ArticleSearchParams = {
   q?: string;
   fq?: string;
-  page?: number;
 };
 
 export type ArticleSearchResponse = {

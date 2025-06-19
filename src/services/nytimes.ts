@@ -8,12 +8,11 @@ export const nytimesApi = createApi({
   }),
   endpoints: (builder) => ({
     searchArticles: builder.query<ArticleSearchResponse, ArticleSearchParams>({
-      query: ({ q = "", fq = "", page = 0 }) => ({
+      query: ({ q, fq }) => ({
         url: "articlesearch.json",
         params: {
-          q,
-          fq,
-          page,
+          ...(q && { q }),
+          ...(fq && { fq }),
           "api-key": process.env.NEXT_PUBLIC_NYT_API_KEY,
         },
       }),

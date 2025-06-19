@@ -1,0 +1,19 @@
+.search {
+  input {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.article {
+  figure {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  div {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}

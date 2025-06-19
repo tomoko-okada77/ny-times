@@ -58,3 +58,17 @@ export type ArticleSearchResponse = {
     };
   };
 };
+
+export type Article = {
+  abstract: string;
+  headline: {
+    main: string;
+  };
+  _id: string;
+  multimedia: {
+    default: {
+      url: string;
+    };
+  };
+  web_url: string;
+};

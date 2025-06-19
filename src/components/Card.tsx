@@ -16,7 +16,7 @@ const Card = ({ article }: Props) => {
       key={article._id}
       className="mb-4 pb-4 border-b border-gray-300 grid grid-cols-[auto_1fr_auto] items-center gap-8"
     >
-      <figure className="w-28 h-[75px] bg-gray-300 overflow-hidden">
+      <figure className="w-28 h-[75px] bg-gray-300 overflow-hidden flex items-center justify-center">
         {article.multimedia?.default?.url ? (
           <>
             <Image

@@ -27,6 +27,7 @@ body {
 
 input:focus,
 select:focus,
+select:focus-visible,
 select:hover {
   outline: none;
 }

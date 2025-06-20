@@ -11,19 +11,27 @@ export default function ArticleList() {
 
   return (
     <div>
-      <Input onChange={setQ} />
+      <Input onChange={setQ} wrapperClass="search" />
       <div className="mt-8">
-        {error ? (
-          <p className="text-red-700">An error occurred.</p>
-        ) : isLoading ? (
-          <>Loading article...</>
-        ) : data ? (
-          <>
-            {data.response.docs.map((article) => (
-              <Card article={article} key={article._id} />
-            ))}
-          </>
-        ) : null}
+        {(() => {
+          if (error && typeof error === "string") {
+            return <p className="text-red-700">{error}</p>;
+          }
+          if (isLoading) {
+            return <>Loading article...</>;
+          }
+          if (!data || data.response.docs.length === 0) {
+            return <p>No articles found.</p>;
+          }
+
+          return (
+            <>
+              {data.response.docs.map((article) => (
+                <Card article={article} key={article._id} />
+              ))}
+            </>
+          );
+        })()}
       </div>
     </div>
   );

@@ -16,6 +16,22 @@ export const nytimesApi = createApi({
           "api-key": process.env.NEXT_PUBLIC_NYT_API_KEY,
         },
       }),
+      transformErrorResponse: (response: { status: number, data: unknown }) => {
+        if (response.status === 429) {
+          return "リクエストが多すぎます。しばらくしてから再度お試しください。";
+        }
+        if (response.status === 404) {
+          return "記事が見つかりませんでした。";
+        }
+        if (
+          response.data &&
+          typeof response.data === "object" &&
+          "message" in response.data
+        ) {
+          return response.data.message;
+        }
+        return "不明なエラーが発生しました。";
+      },
     }),
   }),
 });

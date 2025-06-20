@@ -24,6 +24,7 @@ const Card = ({ article }: Props) => {
               alt={article.headline.main}
               fill={true}
               sizes="112px"
+              className="object-cover"
             />
           </>
         ) : (

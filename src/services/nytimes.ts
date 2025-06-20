@@ -12,7 +12,7 @@ export const nytimesApi = createApi({
         url: "articlesearch.json",
         params: {
           ...(q && { q }),
-          ...(fq && { fq }),
+          ...(fq && { fq: "section.name:" + fq }),
           "api-key": process.env.NEXT_PUBLIC_NYT_API_KEY,
         },
       }),

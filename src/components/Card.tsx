@@ -14,17 +14,16 @@ const Card = ({ article }: Props) => {
       target="_blank"
       rel="noreferrer noopener"
       key={article._id}
-      className="mb-4 pb-4 border-b border-gray-300 grid grid-cols-[auto_1fr_auto] items-center gap-8"
+      className="mb-4 pb-4 border-b border-gray-300 grid grid-cols-[auto_1fr_auto] md:items-center gap-8"
     >
-      <figure className="w-28 h-[75px] bg-gray-300 overflow-hidden">
+      <figure className="w-28 h-[75px] bg-gray-300 overflow-hidden flex items-center justify-center relative">
         {article.multimedia?.default?.url ? (
           <>
             <Image
               src={article.multimedia?.default?.url || ""}
               alt={article.headline.main}
-              width={600}
-              height={400}
-              className="w-full h-full object-cover"
+              fill={true}
+              sizes="112px"
             />
           </>
         ) : (

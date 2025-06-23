@@ -8,7 +8,7 @@ const Select = (props: Props) => {
   const {
     options,
     placeholder = "選択してください",
-    wrapperClass,
+    wrapperClass = "",
     ...selectProps
   } = props;
 

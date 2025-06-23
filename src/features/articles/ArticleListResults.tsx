@@ -2,30 +2,31 @@ import Card from "@/components/Card"
 import type { Article } from "@/types/article";
 
 type Props = {
-  state: "error" | "loading" | "no-data" | "success";
   error?: string;
   docs?: Article[];
+  isLoading: boolean;
 };
 
-const ArticleListResults = ({ state, error, docs }: Props) => {
-  switch (state) {
-    case "error":
-      return <p className="text-red-700">{error}</p>;
-    case "loading":
-      return <p>Loading article...</p>;
-    case "no-data":
-      return <p>No articles found.</p>;
-    case "success":
-      return (
-        <>
-          {docs?.map((article) => (
-            <Card article={article} key={article._id} />
-          ))}
-        </>
-      );
-    default:
-      return null;
+const ArticleListResults = ({ error, docs, isLoading }: Props) => {
+  if (isLoading) {
+    return <p>Loading article...</p>;
   }
+
+  if (error) {
+    return <p className="text-red-700">{error}</p>;
+  }
+
+  if (!docs || docs.length === 0) {
+    return <p>No articles found.</p>;
+  }
+
+  return (
+    <>
+      {docs?.map((article) => (
+        <Card article={article} key={article._id} />
+      ))}
+    </>
+  );
 };
 
 export default ArticleListResults;

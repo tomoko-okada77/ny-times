@@ -5,7 +5,7 @@ type Props = React.InputHTMLAttributes<HTMLInputElement> & {
 };
 
 const Input = (props: Props) => {
-  const { wrapperClass, ...inputProps } = props;
+  const { wrapperClass = "", ...inputProps } = props;
   return (
     <div
       className={`${wrapperClass} w-full md:max-w-[320px] px-5 py-3 border border-gray-300 rounded-full flex items-center justify-between gap-3`}

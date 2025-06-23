@@ -5,9 +5,9 @@
 
 ## 使用技術
 
-[https://nextjs.org/](Next.js(15.3.3))
-[https://redux-toolkit.js.org/](Redux Toolkit)
-[https://tailwindcss.com/](Tailwind CSS)
+- [https://nextjs.org/](Next.js(15.3.3))
+- [https://redux-toolkit.js.org/](Redux Toolkit)
+- [https://tailwindcss.com/](Tailwind CSS)
 
 ## パッケージインストール
 

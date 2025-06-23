@@ -44,4 +44,4 @@ export const SECTION_NAMES = [
   "Well",
   "World",
   "Your Money"
-];
+] as const;

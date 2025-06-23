@@ -1,24 +1,28 @@
-import { SECTION_NAMES } from "@/data/sections";
-
-type Props = {
-  value: string;
-  onChange: (value: string) => void;
+type Props = React.SelectHTMLAttributes<HTMLSelectElement> & {
+  options: { value: string; label: string }[];
+  placeholder?: string;
+  wrapperClass?: string;
 };
 
-const Select = ({ value, onChange }: Props) => {
+const Select = (props: Props) => {
+  const {
+    options,
+    placeholder = "選択してください",
+    wrapperClass,
+    ...selectProps
+  } = props;
+
   return (
-    <div className="w-full md:max-w-[320px] px-6 border border-gray-300 rounded-md flex items-center justify-between gap-3">
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full py-3"
-      >
+    <div
+      className={`${wrapperClass} w-full md:max-w-[320px] px-6 border border-gray-300 rounded-md flex items-center justify-between gap-3`}
+    >
+      <select {...selectProps} className="w-full py-3">
         <option value="" className="text-gray-300">
-          ジャンルを選択
+          {placeholder}
         </option>
-        {SECTION_NAMES.map((name) => (
-          <option key={name} value={name}>
-            {name}
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
           </option>
         ))}
       </select>

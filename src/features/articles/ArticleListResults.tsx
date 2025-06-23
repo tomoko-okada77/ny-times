@@ -4,21 +4,21 @@ import type { Article } from "@/types/article";
 type Props = {
   state: "error" | "loading" | "no-data" | "success";
   error?: string;
-  data?: { response: { docs: Article[] } };
+  docs?: Article[];
 };
 
-const ArticleListResults = ({ state, error, data }: Props) => {
+const ArticleListResults = ({ state, error, docs }: Props) => {
   switch (state) {
     case "error":
       return <p className="text-red-700">{error}</p>;
     case "loading":
-      return <>Loading article...</>;
+      return <p>Loading article...</p>;
     case "no-data":
-      return null;
+      return <p>No articles found.</p>;
     case "success":
       return (
         <>
-          {data!.response.docs.map((article) => (
+          {docs?.map((article) => (
             <Card article={article} key={article._id} />
           ))}
         </>
